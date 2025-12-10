@@ -1,0 +1,12 @@
+#!/bin/bash
+
+curl -k -X POST \
+  "https://10.10.20.90:443/jwt/login" \
+  -H "Content-Type: application/json" \
+  -d "{
+    "username": “admin”,
+    "password": “C1sco12345”,
+    "duration": “604800”
+  }"
+
+
