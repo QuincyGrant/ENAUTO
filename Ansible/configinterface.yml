@@ -1,0 +1,36 @@
+---
+#Simple playbook that will gather interface details and save it to a file then
+#configure interface Gi2 with an IP and no shut it. IOS-XE router hosted in Cisco's Always On Sandbox
+- name: Configure interfaces
+  hosts: all
+  connection: network_cli
+  gather_facts: no
+
+  tasks:
+    - name: Get interfaces
+      ios_facts:
+        gather_subset:
+          - interfaces
+      register: interfaces
+
+    - name: Print interfaces
+      debug:
+        var: interfaces
+
+    - name: Copy interfaces to file
+      copy:
+       content: "{{ansible_net_interfaces}}"
+       dest: interfaces.txt
+
+    - name: Configure GigabitEthernet2
+      ios_config:
+        parents: interface GigabitEthernet2
+        commands:
+          - ip address 172.16.1.1 255.255.255.0
+          - description Configured with Ansible
+          - no shutdown
+
+    - name: Print Gigabit Ethernet2
+      debug:
+        var: ansible_net_interfaces['GigabitEthernet2']
+

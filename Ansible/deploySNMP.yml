@@ -1,0 +1,23 @@
+---
+#First playbook. Configure SNMP communities then print. IOS-XE router hosted in Cisco Always on Sandbox
+- name: View and deploy SNMP
+  hosts: iosxe
+  connection: network_cli
+  gather_facts: no
+
+  tasks:
+    - name: CONFIGURE SNMP
+      ios_config:
+        commands:
+          - snmp-server community public RO
+          - snmp-server community private RW
+
+    - name: SHOW SNMP
+      ios_command:
+        commands: 
+          - show snmp community
+      register: output
+
+    - name: Print show commands
+      debug: 
+         var: output['stdout']
