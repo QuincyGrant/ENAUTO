@@ -1,6 +1,7 @@
 #Testing various Meraki API calls in a lab environment hosted in Cisco's Always On Sandbox 
 
 import meraki
+import os
 import requests
 import sys
 import json

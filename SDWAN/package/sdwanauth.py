@@ -1,7 +1,7 @@
 #Obtain JSESSIONID and XSRF token needed to authenticate future API calls. Cisco Catalyst SD-WAN hosted in Cisco's Always-On Sandbox
-
 import requests
 import json
+from pprint import pprint
 
 class Authentication:
     #staticmethod is a decorator that allows us to create a function without having to pass 'self' as it's not needed here
@@ -14,7 +14,6 @@ class Authentication:
 
         #Make API Call. The 'verify' parameter is to ignore untrusted cert
         response = requests.post(url=f"https://{vmanage_server}:{vmanage_port}{path}", headers=h, data=payload, verify=False)
-        print(response.headers)
         ck = response.headers["Set-Cookie"].split(";")[0]
 
         return ck
@@ -30,20 +29,3 @@ class Authentication:
         tk = response.text
 
         return tk
-
-vs = "10.10.20.90"
-vp = "443"
-username = "admin"
-password = "C1sco12345"
-
-auth = Authentication()
-JSESSIONID = auth.get_sessionid(vs,vp,username,password)
-XSRFTOKEN = auth.get_token(JSESSIONID,vs,vp)
-
-#We now include the token and jsession ID in the header of our API calls
-HEADER = {"Content-Type": "application/json", "X-XSRF-TOKEN":XSRFTOKEN, "Cookie":JSESSIONID}
-
-#Get list of devices
-response = requests.get(url=f"https://{vs}:{vp}/dataservice/device", headers=HEADER, verify=False)
-
-print(response.text)
