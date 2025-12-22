@@ -18,10 +18,9 @@ def dnacenterauth():
         "Authorization":"Basic " + encoded_string #Don't forget the space after 'Basic'. This indicates that Basic Auth is used
     }
 
-    base = "https://sandboxdnac.cisco.com/dna/intent/api"
-    tokenurl = "https://sandboxdnac.cisco.com/dna/system/api/v1/auth/token"
+    url = "https://sandboxdnac.cisco.com/dna/system/api/v1/auth/token"
 
-    response = requests.request("POST",url=tokenurl,headers=headers,verify=False)
+    response = requests.request("POST",url=url,headers=headers,verify=False)
     token = json.loads(response.text)['Token']
 
     return token
