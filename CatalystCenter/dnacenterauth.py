@@ -23,7 +23,4 @@ def dnacenterauth():
     response = requests.request("POST",url=url,headers=headers,verify=False)
     token = response.json()['Token']
 
-    print(type(response.json()))
-    print(type(token))
-    print(response.json())
     return token
