@@ -21,6 +21,9 @@ def dnacenterauth():
     url = "https://sandboxdnac.cisco.com/dna/system/api/v1/auth/token"
 
     response = requests.request("POST",url=url,headers=headers,verify=False)
-    token = json.loads(response.text)['Token']
+    token = response.json()['Token']
 
+    print(type(response.json()))
+    print(type(token))
+    print(response.json())
     return token
