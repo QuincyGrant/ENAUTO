@@ -1,1 +1,1 @@
-Created to help study for the CCNP ENAUTO exam. All network devices hosted in Cisco's always on sandbox which is intended for lab use only.
+These are scripts and files I created in preparation for the CCNP ENAUTO exam. These have only been ran in Cisco's Always On Sandboxes and never in a live production environment. 
