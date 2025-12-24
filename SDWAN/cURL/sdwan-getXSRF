@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Retrieve the JSESSIONID session hash from the cookie.text file from the earlier CURL example.
+# Retrieve the JSESSIONID session hash from the cookie.text file from the earlier cURL example.
 curl -k -X GET \
   "https://10.10.20.90:443/dataservice/client/token" \
   -H "Content-Type: application/json" \
