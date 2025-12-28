@@ -1,0 +1,43 @@
+---
+- name: Configure OSPF
+  hosts: iosxeyaml
+  connection: network_cli
+  gather_facts: no
+
+  tasks:
+    - name: Get interfaces
+      ios_facts:
+        gather_subset:
+          - interfaces
+      register: interfaces
+
+    - name: Write interfaces to a text file
+      copy:
+        content: "{{ansible_net_interfaces |  to_nice_json}}" #Should print it in a 'pretty' format
+        dest: prettyinterfaces.txt
+
+    - name: Configure loopback and then OSPF
+      ios_config:
+        parents: interface loopback 200
+        commands:
+          - ip add 172.16.15.1 255.255.255.0
+          - ip ospf 1 area 0
+
+    - name: Show OSPF
+      ios_command:
+        commands:
+          - show ip ospf int
+          - show run | sec ospf
+          - show ip protocols
+      register: ospf
+
+    - name: Print OSPF
+      debug:
+        var: ospf['stdout']
+
+    - name: Write OSPF status to text file
+      copy:
+        content: "{{ospf['stdout'] | to_nice_json}}"
+        dest: ospf.txt
+
+

@@ -1,0 +1,18 @@
+#Inventory written in YAML format
+---
+all:
+  children:
+    iosxeyaml:
+      hosts:
+        10.10.20.48:
+    nxos:
+      hosts:
+        10.10.20.40:
+          ansible_network_os: nxos
+          ansible_user: admin
+          ansible_pass: RG!_Yw200
+  #default variables assigned  to 'all'
+  vars:
+    ansible_ssh_user: developer
+    ansible_ssh_pass: C1sco12345
+    ansible_network_os: ios

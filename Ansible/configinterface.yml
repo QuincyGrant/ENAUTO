@@ -2,7 +2,7 @@
 #Simple playbook that will gather interface details and save it to a file then
 #configure interface Gi2 with an IP and no shut it. IOS-XE router hosted in Cisco's Always On Sandbox
 - name: Configure interfaces
-  hosts: all
+  hosts: iosxe
   connection: network_cli
   gather_facts: no
 

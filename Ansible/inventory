@@ -1,6 +1,9 @@
 [iosxe]
 10.10.20.48
 
+[nxos]
+10.10.20.40 ansible_libssh_user=admin ansible_ssh_pass=RG!_Yw200 ansible_network_os=nxos
+
 [all:vars]
 ansible_libssh_pass=C1sco12345
 ansible_libssh_user=developer

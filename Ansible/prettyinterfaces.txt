@@ -1,0 +1,123 @@
+{
+    "GigabitEthernet1": {
+        "bandwidth": 1000000,
+        "description": "MANAGEMENT INTERFACE - DON'T TOUCH ME",
+        "duplex": "Full",
+        "ipv4": [
+            {
+                "address": "10.10.20.48",
+                "subnet": "24"
+            }
+        ],
+        "lineprotocol": "up",
+        "macaddress": "0050.56bf.36df",
+        "mediatype": "Virtual",
+        "mtu": 1500,
+        "operstatus": "up",
+        "type": "vNIC"
+    },
+    "GigabitEthernet2": {
+        "bandwidth": 1000000,
+        "description": "Network Interface",
+        "duplex": "Full",
+        "ipv4": [],
+        "lineprotocol": "down",
+        "macaddress": "0050.56bf.b511",
+        "mediatype": "Virtual",
+        "mtu": 1500,
+        "operstatus": "administratively down",
+        "type": "vNIC"
+    },
+    "GigabitEthernet3": {
+        "bandwidth": 1000000,
+        "description": "Network Interface",
+        "duplex": "Full",
+        "ipv4": [],
+        "lineprotocol": "down",
+        "macaddress": "0050.56bf.3a0f",
+        "mediatype": "Virtual",
+        "mtu": 1500,
+        "operstatus": "administratively down",
+        "type": "vNIC"
+    },
+    "Loopback0": {
+        "bandwidth": 8000000,
+        "description": null,
+        "duplex": null,
+        "ipv4": [
+            {
+                "address": "10.0.0.1",
+                "subnet": "24"
+            }
+        ],
+        "lineprotocol": "up",
+        "macaddress": null,
+        "mediatype": null,
+        "mtu": 1514,
+        "operstatus": "up",
+        "type": null
+    },
+    "Loopback10": {
+        "bandwidth": 8000000,
+        "description": null,
+        "duplex": null,
+        "ipv4": [],
+        "lineprotocol": "up",
+        "macaddress": null,
+        "mediatype": null,
+        "mtu": 1514,
+        "operstatus": "up",
+        "type": null
+    },
+    "Loopback109": {
+        "bandwidth": 8000000,
+        "description": "Configured by RESTCONF ga jadi",
+        "duplex": null,
+        "ipv4": [
+            {
+                "address": "10.255.255.9",
+                "subnet": "24"
+            }
+        ],
+        "lineprotocol": "up",
+        "macaddress": null,
+        "mediatype": null,
+        "mtu": 1514,
+        "operstatus": "up",
+        "type": null
+    },
+    "Loopback200": {
+        "bandwidth": 8000000,
+        "description": null,
+        "duplex": null,
+        "ipv4": [
+            {
+                "address": "172.16.15.1",
+                "subnet": "24"
+            }
+        ],
+        "lineprotocol": "up",
+        "macaddress": null,
+        "mediatype": null,
+        "mtu": 1514,
+        "operstatus": "up",
+        "type": null
+    },
+    "VirtualPortGroup0": {
+        "bandwidth": 333000,
+        "description": null,
+        "duplex": null,
+        "ipv4": [
+            {
+                "address": "192.168.1.1",
+                "subnet": "24"
+            }
+        ],
+        "lineprotocol": "up",
+        "macaddress": "001e.e538.efbd",
+        "mediatype": null,
+        "mtu": 1500,
+        "operstatus": "up",
+        "type": "Virtual Port Group"
+    }
+}
