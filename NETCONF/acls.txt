@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:6813aef9-3b25-403c-8e95-c880c68567aa">
+	<data>
+		<acl xmlns="http://openconfig.net/yang/acl">
+			<acl-sets>
+				<acl-set>
+					<name>NAT-ACL</name>
+					<type>ACL_IPV4</type>
+					<acl-entries>
+						<acl-entry>
+							<sequence-id>10</sequence-id>
+							<config>
+								<sequence-id>10</sequence-id>
+							</config>
+							<ipv4>
+								<config>
+									<source-address>192.168.1.0/24</source-address>
+									<protocol xmlns:oc-acl-cisco="http://cisco.com/ns/yang/cisco-xe-openconfig-acl-ext">oc-acl-cisco:IP</protocol>
+								</config>
+							</ipv4>
+							<transport>
+								<config>
+									<source-port>ANY</source-port>
+									<destination-port>ANY</destination-port>
+								</config>
+							</transport>
+							<actions>
+								<config>
+									<forwarding-action>ACCEPT</forwarding-action>
+									<log-action>LOG_NONE</log-action>
+								</config>
+							</actions>
+						</acl-entry>
+					</acl-entries>
+				</acl-set>
+				<acl-set>
+					<name>Test</name>
+					<type>ACL_IPV4</type>
+					<acl-entries>
+						<acl-entry>
+							<sequence-id>10</sequence-id>
+							<config>
+								<sequence-id>10</sequence-id>
+							</config>
+							<ipv4>
+								<config>
+									<destination-address>1.1.1.1/32</destination-address>
+									<protocol xmlns:oc-acl-cisco="http://cisco.com/ns/yang/cisco-xe-openconfig-acl-ext">oc-acl-cisco:IP</protocol>
+								</config>
+							</ipv4>
+							<transport>
+								<config>
+									<source-port>ANY</source-port>
+									<destination-port>ANY</destination-port>
+								</config>
+							</transport>
+							<actions>
+								<config>
+									<forwarding-action>ACCEPT</forwarding-action>
+									<log-action>LOG_NONE</log-action>
+								</config>
+							</actions>
+						</acl-entry>
+					</acl-entries>
+				</acl-set>
+			</acl-sets>
+		</acl>
+	</data>
+</rpc-reply>
+
